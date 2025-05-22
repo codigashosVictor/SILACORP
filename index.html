@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Organización SILACORP - Cursos de Brigadas</title>
+  <title>SILACORP - Cursos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(135deg, #ff0000aa, #ffffffcc);
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff0000cc, #ffffffcc);
     }
-
     .glass {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
       border-radius: 1rem;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
+<body class="text-white min-h-screen font-sans">
 
-<body class="min-h-screen text-white">
-  <div class="max-w-5xl mx-auto p-6">
-    <!-- Logo -->
-    <div class="text-center mb-6">
-      <img src="https://raw.githubusercontent.com/tu_usuario/tu_repositorio/main/logo.png" alt="Logo SILACORP"
-        class="mx-auto w-32 mb-4" />
-      <h1 class="text-4xl font-bold">Organización SILACORP</h1>
-      <p class="text-lg mt-2">Formando héroes con nuestros cursos de brigadas de emergencia</p>
+  <!-- NAVBAR -->
+  <nav class="glass flex justify-between items-center p-4 fixed top-0 w-full z-50 backdrop-blur-md">
+    <div class="flex items-center space-x-3">
+      <img src="https://raw.githubusercontent.com/tu_usuario/tu_repositorio/main/logo.png" class="w-10 h-10" alt="Logo SILACORP">
+      <span class="font-bold text-xl">SILACORP</span>
     </div>
+    <ul class="hidden md:flex space-x-6 font-semibold text-lg">
+      <li><a href="#sobre" class="hover:text-gray-300">Sobre Nosotros</a></li>
+      <li><a href="#formulario" class="hover:text-gray-300">Inscripción</a></li>
+      <li><a href="#redes" class="hover:text-gray-300">Redes</a></li>
+    </ul>
+  </nav>
 
-    <!-- Información institucional -->
-    <div class="glass p-6 mb-6">
-      <h2 class="text-2xl font-bold mb-4">Sobre Nosotros</h2>
-      <p><strong>Misión:</strong> Capacitar de forma profesional a personas para actuar en situaciones de emergencia.
-      </p>
-      <p><strong>Visión:</strong> Ser la organización líder en formación de brigadas de emergencia en México.</p>
-      <p><strong>Valores:</strong> Compromiso, Profesionalismo, Integridad, Trabajo en equipo.</p>
-      <p><strong>Objetivo del Curso:</strong> Proporcionar herramientas y conocimientos prácticos para enfrentar
-        emergencias con seguridad y eficacia.</p>
-    </div>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="pt-24 max-w-5xl mx-auto p-4 space-y-12">
+
+    <!-- Presentación -->
+    <section id="sobre" class="glass p-6 text-center">
+      <h1 class="text-4xl font-bold mb-4">Organización SILACORP</h1>
+      <p class="text-lg mb-6">Formación profesional en brigadas de emergencia y seguridad.</p>
+      <div class="grid md:grid-cols-2 gap-4 text-left">
+        <div>
+          <p><i class="fas fa-bullseye text-red-500"></i> <strong>Misión:</strong> Capacitar a personas para actuar en situaciones de emergencia.</p>
+          <p><i class="fas fa-eye text-red-500"></i> <strong>Visión:</strong> Ser líderes en capacitación de brigadas en México.</p>
+        </div>
+        <div>
+          <p><i class="fas fa-heart text-red-500"></i> <strong>Valores:</strong> Compromiso, Integridad, Trabajo en equipo.</p>
+          <p><i class="fas fa-star text-red-500"></i> <strong>Objetivo:</strong> Proveer herramientas prácticas para enfrentar emergencias.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Formulario -->
-    <form id="formulario" class="glass p-6 space-y-4 text-black">
-      <h2 class="text-2xl font-bold mb-4 text-white">Inscripción al Curso</h2>
+    <section id="formulario" class="glass p-6 space-y-4 text-black">
+      <h2 class="text-2xl font-bold text-white mb-4"><i class="fas fa-clipboard-list"></i> Inscripción al Curso</h2>
 
       <input type="text" id="nombre" placeholder="Nombre completo" required class="w-full p-2 rounded" />
       <input type="date" id="fecha" required class="w-full p-2 rounded" />
@@ -64,105 +73,78 @@
         <option value="Virtual">Virtual</option>
       </select>
 
-      <input type="tel" id="telefono" maxlength="10" pattern="\d{10}" placeholder="Teléfono (10 dígitos)" required
-        class="w-full p-2 rounded" />
+      <input type="tel" id="telefono" maxlength="10" pattern="\d{10}" placeholder="Teléfono (10 dígitos)" required class="w-full p-2 rounded" />
       <input type="email" id="email" placeholder="Correo electrónico" required class="w-full p-2 rounded" />
       <input type="text" id="ciudad" placeholder="Ciudad" required class="w-full p-2 rounded" />
 
       <select id="estado" required class="w-full p-2 rounded">
         <option value="">Estado</option>
-        <option>Aguascalientes</option>
-        <option>Baja California</option>
-        <option>Baja California Sur</option>
-        <option>Campeche</option>
-        <option>Chiapas</option>
-        <option>Chihuahua</option>
-        <option>CDMX</option>
-        <option>Coahuila</option>
-        <option>Colima</option>
-        <option>Durango</option>
-        <option>Estado de México</option>
-        <option>Guanajuato</option>
-        <option>Guerrero</option>
-        <option>Hidalgo</option>
-        <option>Jalisco</option>
-        <option>Michoacán</option>
-        <option>Morelos</option>
-        <option>Nayarit</option>
-        <option>Nuevo León</option>
-        <option>Oaxaca</option>
-        <option>Puebla</option>
-        <option>Querétaro</option>
-        <option>Quintana Roo</option>
-        <option>San Luis Potosí</option>
-        <option>Sinaloa</option>
-        <option>Sonora</option>
-        <option>Tabasco</option>
-        <option>Tamaulipas</option>
-        <option>Tlaxcala</option>
-        <option>Veracruz</option>
-        <option>Yucatán</option>
-        <option>Zacatecas</option>
+        <option>Aguascalientes</option><option>Baja California</option><option>Baja California Sur</option>
+        <option>Campeche</option><option>Chiapas</option><option>Chihuahua</option><option>CDMX</option>
+        <option>Coahuila</option><option>Colima</option><option>Durango</option><option>Estado de México</option>
+        <option>Guanajuato</option><option>Guerrero</option><option>Hidalgo</option><option>Jalisco</option>
+        <option>Michoacán</option><option>Morelos</option><option>Nayarit</option><option>Nuevo León</option>
+        <option>Oaxaca</option><option>Puebla</option><option>Querétaro</option><option>Quintana Roo</option>
+        <option>San Luis Potosí</option><option>Sinaloa</option><option>Sonora</option><option>Tabasco</option>
+        <option>Tamaulipas</option><option>Tlaxcala</option><option>Veracruz</option><option>Yucatán</option><option>Zacatecas</option>
       </select>
 
       <textarea id="comentarios" rows="3" placeholder="Comentarios adicionales" class="w-full p-2 rounded"></textarea>
 
       <div class="flex flex-col md:flex-row gap-4">
-        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white p-2 rounded">Generar Inscripción</button>
-        <button type="button" onclick="generarPDF()"
-          class="bg-green-600 hover:bg-green-700 text-white p-2 rounded">Exportar Recibo en PDF</button>
+        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white p-2 rounded" onclick="registrar(event)">Generar Inscripción</button>
+        <button type="button" onclick="generarPDF()" class="bg-green-600 hover:bg-green-700 text-white p-2 rounded">Exportar Recibo PDF</button>
       </div>
 
       <p id="mensaje" class="text-green-600 font-bold mt-2 hidden">¡Se ha inscrito correctamente!</p>
-    </form>
+    </section>
 
     <!-- Redes sociales -->
-    <div class="mt-10 text-center text-2xl space-x-4">
-      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook text-white"></i></a>
-      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram text-white"></i></a>
-      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok text-white"></i></a>
-      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin text-white"></i></a>
-      <a href="https://wa.me/5210000000000" target="_blank"><i class="fab fa-whatsapp text-green-500"></i></a>
-    </div>
-  </div>
+    <section id="redes" class="text-center space-x-5 text-3xl pt-10">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </section>
+  </main>
 
+  <!-- WhatsApp botón flotante -->
+  <a href="https://wa.me/5210000000000" target="_blank" class="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg z-50">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- Script -->
   <script>
-    document.getElementById("formulario").addEventListener("submit", function (e) {
-      e.preventDefault();
+    function registrar(event) {
+      event.preventDefault();
       document.getElementById("mensaje").classList.remove("hidden");
-      this.reset();
-    });
+      document.getElementById("formulario").reset();
+    }
 
     function generarPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
-      const nombre = document.getElementById("nombre").value;
-      const fecha = document.getElementById("fecha").value;
-      const curso = document.getElementById("curso").value;
-      const modalidad = document.getElementById("modalidad").value;
-      const telefono = document.getElementById("telefono").value;
-      const email = document.getElementById("email").value;
-      const ciudad = document.getElementById("ciudad").value;
-      const estado = document.getElementById("estado").value;
-      const comentarios = document.getElementById("comentarios").value;
+      const datos = {
+        nombre: document.getElementById("nombre").value,
+        fecha: document.getElementById("fecha").value,
+        curso: document.getElementById("curso").value,
+        modalidad: document.getElementById("modalidad").value,
+        telefono: document.getElementById("telefono").value,
+        email: document.getElementById("email").value,
+        ciudad: document.getElementById("ciudad").value,
+        estado: document.getElementById("estado").value,
+        comentarios: document.getElementById("comentarios").value,
+      };
 
       let y = 10;
       doc.setFontSize(12);
-      doc.text("Recibo de Inscripción - Organización SILACORP", 10, y);
-      y += 10;
-      doc.text(`Nombre: ${nombre}`, 10, y); y += 10;
-      doc.text(`Fecha Nacimiento: ${fecha}`, 10, y); y += 10;
-      doc.text(`Curso: ${curso}`, 10, y); y += 10;
-      doc.text(`Modalidad: ${modalidad}`, 10, y); y += 10;
-      doc.text(`Teléfono: ${telefono}`, 10, y); y += 10;
-      doc.text(`Email: ${email}`, 10, y); y += 10;
-      doc.text(`Ciudad: ${ciudad}`, 10, y); y += 10;
-      doc.text(`Estado: ${estado}`, 10, y); y += 10;
-      doc.text(`Comentarios: ${comentarios}`, 10, y); y += 10;
+      doc.text("Recibo de Inscripción - Organización SILACORP", 10, y); y += 10;
+      for (const key in datos) {
+        doc.text(`${key.charAt(0).toUpperCase() + key.slice(1)}: ${datos[key]}`, 10, y); y += 10;
+      }
 
       doc.save("Inscripcion_SILACORP.pdf");
     }
   </script>
 </body>
-
 </html>
